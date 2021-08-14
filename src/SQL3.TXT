@@ -1,0 +1,27 @@
+create table  Customor(
+    MaKh varchar(50) PRIMARY KEY ,
+    TenKh varchar(50) not null ,
+    age int not null
+);
+create table Oder(
+    SoHD varchar(50) primary key ,
+    NgayOder datetime,
+    Gia double not null ,
+    MaKh varchar(50) not null ,
+    foreign key (MaKh) REFERENCES Customor(MaKh)
+);
+create table PRODUCT(
+    MaSP VARCHAR(50) PRIMARY KEY ,
+    TenSp varchar(50) not null ,
+    Gia double not null
+
+);
+create table 0derdetail
+(
+    SoHD varchar(50) not null,
+    MaSP VARCHAR(50) NOT NULL,
+    PRIMARY KEY (SoHD, MaSP),
+    FOREIGN KEY (SoHD) REFERENCES Oder (SoHD),
+    FOREIGN KEY (MaSP) REFERENCES PRODUCT(MaSP)
+);
+
